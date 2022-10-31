@@ -1,0 +1,12 @@
+club_id,club_name,city,address,phone_number,instagram,rating,music_genre,bottle_service,pon,uto,sri,cet,pet,sub,ned
+1,The Secret Club,Zagreb,"Draškovićeva ul. 41, 10000, Zagreb",099 625 1088,https://www.instagram.com/thesecretclub.zagreb/,3.6,balkaton,"{""Jack Daniels"",Jameson,Belvedere,""Grey Goose""}",,,,,"{22:00:00,04:00:00}","{22:00:00,05:30:00}",
+2,XO Club,Zagreb,Vlaška ul. 9,095 382 3998,https://www.instagram.com/xo.club.zg,4.3,narodno,,,,,,"{22:00:00,05:00:00}","{22:00:00,05:00:00}",
+3,Gallery Club,Zagreb, Aleja Matije Ljubeka,099 444 2444,https://www.instagram.com/galleryclub.zagreb,3.7,"narodno, strano",,,,,,,"{22:30:00,04:00:00}",
+4,585 Club Bol,Bol,Put Zlatnog Rata 52B,091 233 3471,https://www.instagram.com/585club/,3.3,strano,,"{23:00:00,04:00:00}","{23:00:00,04:00:00}","{23:00:00,04:00:00}","{23:00:00,04:00:00}","{23:00:00,04:00:00}","{23:00:00,04:00:00}","{23:00:00,04:00:00}"
+5,Mint - Club & More,Zagreb,Ul. Florijana Andrašeca 14,091 390 0707,https://www.instagram.com/mintzagreb/,3.7,narodno,"{""Absolut Blue vodka"",""Belvedere vodka"",""Grey Goose vodka"",""Beefeater 24 gin"",""Silent Pool gin"",""Hendrick's gin"",""Gin Mare"",""Hennessy V.S. Luminous
+"",""Jameson whiskey"",""Chivas Regal 15 YO whisky"",""Gentleman Jack whisky""}",,,"{22:00:00,03:00:00}",,"{20:00:00,04:00:00}","{20:00:00,04:00:00}",
+6,Restaurant & Night Club Urnebes,Zagreb,Trnjanska cesta 117,098 555 511,https://www.instagram.com/urnebes_nightclub/,4.1,narodno,,,,"{22:00:00,04:00:00}",,"{22:00:00,04:00:00}","{22:00:00,04:00:00}",
+7,Ritz Club,Zagreb,Petrinjska ul. 4a,091 355 1355,https://www.instagram.com/ritzclubzg/,3.2,narodno,,,,,,"{23:00:00,05:00:00}","{23:00:00,05:00:00}",
+8,Club H2O,Zagreb,Runjaninova ul. 3,091 510 0661,https://www.instagram.com/clubh2ozagreb/,3.3,narodno,,,,,,"{22:00:00,04:00:00}","{22:00:00,04:00:00}",
+9,Aquarius club Zagreb,Zagreb,Aleja Matije Ljubeka 19,01 3640 231,https://www.instagram.com/aquariuszagreb/,3.3,edm,,,,,,,,
+10,Museum Katran,Zagreb,Radnička cesta 27,,https://www.instagram.com/museumkatran/,4.4,various,,,,,,"{22:00:00,22:00:00}","{22:00:00,22:00:00}",
