@@ -13,9 +13,12 @@
     "datatables.net": "^1.13.1",
     "datatables.net-dt": "^1.13.1",
     "express": "^4.18.2",
+    "express-openid-connect": "^2.11.0",
     "express-session": "^1.17.3",
+    "file-saver": "^2.0.5",
     "http-status": "^1.5.3",
     "jquery": "^3.6.1",
+    "json2csv": "^5.0.7",
     "pg": "^8.8.0",
     "pug": "^3.0.2",
     "sequelize": "^6.25.5"

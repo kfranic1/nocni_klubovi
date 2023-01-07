@@ -2,6 +2,8 @@ const {Client} = require("pg")
 const express = require("express")
 const app = express()
 const bodyParser = require('body-parser')
+const fs = require('fs');
+const { parse } = require('json2csv')
 
 app.use(bodyParser.json());
 
@@ -20,7 +22,9 @@ app.get('/clubs', (req, res) => {
       res.status(500).send(err.toString());
     }
     else{
-      res.status(200).json(result.rows)
+      res.status(200).json( {data:result.rows,
+      context:{"Instagram":"Displays username on social network",
+      "Club_name":"Name of a night club."}})
     }
   })
 })
@@ -100,7 +104,6 @@ app.get('/docs', (req, res) => {
 
 
 //#endregion
-//TODO add OPENapi DOcumentation GET
 
 //#region Other
 app.post('/clubs', (req, res) => {
@@ -177,12 +180,73 @@ app.delete('/clubs/:id', (req, res) => {
       }
     })
   })
+//#endregion
+
+// #region auth
+const { auth } = require('express-openid-connect');
+const { requiresAuth } = require('express-openid-connect');
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: 'a long, randomly-generated string stored in env',
+  baseURL: 'http://localhost:8080',
+  clientID: 'PDAZeG1reB0iQOACjqAXd5NSmxs4UYUm',
+  issuerBaseURL: 'https://dev-6c4acg7ufelo6yyp.us.auth0.com'
+};
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// req.isAuthenticated is provided from the auth router
+app.get('/', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 
+    '<a href="/profile">Korisnički profil</a><br>' +
+    '<a href="/download">Osviježi preslike</a><br>' +
+    '<a href="/logout">Odjava</a>' :
+    '<a href="/login">Prijava</a>');
+});
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
+app.get('/download', requiresAuth(), (req, res) => {
+  client.query('SELECT * FROM clubs', (err, result) =>{
+    if(err){
+      res.status(500).send(err.toString());
+    }
+    else{
+      saveCsvFile(result.rows)
+      saveJsonFile(result.rows)
+      res.status(200).json(result.rows)
+    }
+  })
+})
+
+//#endregion
+
+//#region JSON_CSV
+function saveJsonFile(json) {
+  fs.writeFile('C:/Users/Karlo/Downloads/data.json', JSON.stringify(json), (err) => {
+    if (err) throw err;
+    console.log(`json file has been saved!`);
+  });
+}
+
+function saveCsvFile(csv) {
+  fs.writeFile('C:/Users/Karlo/Downloads/data.csv', parse(csv), (err) => {
+    if (err) throw err;
+    console.log(`csv file has been saved!`);
+  });
+}
+
+//#endregion
 
 app.all('*', (req, res) => {
   res.status(405).send(`Method ${req.method} not allowed`);
 });
-//#endregion
-
+  
 app.listen(8080, () => console.log("Listening"))
 
 start()
@@ -191,10 +255,10 @@ async function start(){
 }
 
 async function connect(){
-    try{
-      await client.connect();
-    }
-    catch(e){
-      console.log(e);
-    }
+  try{
+    await client.connect();
   }
+  catch(e){
+    console.log(e);
+  }
+}
